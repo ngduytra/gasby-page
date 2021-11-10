@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
+import { StaticImage } from "gatsby-plugin-image"
+import {Container} from '../styles/404.style'
+import Layout from '../component.js/layout'
 // styles
 const pageStyles = {
   color: "#232129",
@@ -27,27 +29,14 @@ const codeStyles = {
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
+    <Layout style={pageStyles}>
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
+      <Container>
+        <StaticImage alt="404" src="../images/03.png"/>
         <Link to="/">Go home</Link>.
-      </p>
-    </main>
+      </Container>
+    </Layout>
   )
 }
 
